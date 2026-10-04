@@ -23,6 +23,9 @@ function MainLayout({ children }) {
             <li className="nav-item">
               <Link to="/providers" className="nav-link text-white">Providers</Link>
             </li>
+             <li className="nav-item">
+          <Link to="/sales" className="nav-link text-white">Sales</Link>
+          </li>
           </ul>
         </nav>
       </aside>
