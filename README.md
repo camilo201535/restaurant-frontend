@@ -1,16 +1,73 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Integrantes
+Juan Camilo Talaga Cruz 
+Tecnologías
+React 19 + Vite
+react-router-dom ()
+Axios ()
+Bootstrap 5 
 
-Currently, two official plugins are available:
+Node.js 18 o superior
+El backend  corriendo en http://localhost:3000 (Base de datos PostgreSQL)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Instrucciones de ejecución
+Levantar el backend :
+bash
+   npm install
+   npm start
 
-## React Compiler
+La API debe quedar disponible en http://localhost:3000/api.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Clonar e iniciar el frontend:
+bash
+   git clone <https://github.com/camilo201535/restaurant-frontend>
+   cd <C:\Users\Juan Camilo Cruz\Documents\Programacion_IV\restaurantProject>
+   npm install
+   npm start
 
-## Expanding the ESLint configuration
+la URL que muestra la terminal ( http://localhost:5173).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Otros comandos
+
+npm run build	Genera la versión de producción
+npm run preview	Sirve localmente el build generado
+npm run lint	Revisa el código con ESLint
+
+Módulos y rutas
+
+Módulo	Ruta	Endpoints consumidos
+Productos	/products	GET/POST /api/products, PUT/DELETE /api/products/:id
+Usuarios	/users	GET/POST /api/users, PUT/DELETE /api/users/:id
+Proveedores	/providers	GET/POST /api/providers, PUT/DELETE /api/providers/:id
+Ventas	/sales	GET/POST /api/sales, PUT/DELETE /api/sales/:id
+
+Cada módulo permite visualizar los registros en una tabla, crear , editar  y eliminar registros.
+
+Arquitectura
+
+El proyecto separa la interfaz de la lógica de acceso a datos:
+
+src/
+├── components/
+│   └── layout/
+│       └── MainLayout.jsx     #  Navbar y diseño  con Bootstrap
+├── pages/
+│   ├── HomePage.jsx
+│   ├── ProductsPage.jsx
+│   ├── ProvidersPage.jsx
+│   ├── UsersPage.jsx
+│   └── SalesPage.jsx         
+├── services/
+│   ├── api.js                 # Configuración de Axios
+│   ├── product.service.js
+│   ├── provider.service.js
+│   ├── user.service.js
+│   └── sale.service.js        
+├── styles/
+│   └── global.css
+├── App.jsx                    # Configuración de Rutas (react-router-dom)
+└── main.jsx                   # Importación de Bootstrap y renderizado
+
+
+Flujo de datos: página → servicio → API REST → servicio → página .
